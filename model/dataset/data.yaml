@@ -1,0 +1,12 @@
+train: train/images
+val: valid/images
+
+nc: 3
+names: ['leaf', 'root', 'stem']
+
+roboflow:
+  workspace: leds-workspace
+  project: ai-hackathon-yy238
+  version: 4
+  license: Private
+  url: https://app.roboflow.com/leds-workspace/ai-hackathon-yy238/4
