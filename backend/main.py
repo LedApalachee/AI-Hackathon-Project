@@ -40,7 +40,7 @@ async def upload_zip(file: UploadFile = File(...)):
    
     os.remove(temp_zip_path)
 
-    # прогоняем через модель + формируем вычисления в txt файле
+    # прогоняем через модель
     results = mp.measure_dir(model, f"uploads/{folder_id}", 9, f"segmented/{folder_id}")
     shutil.rmtree(f"uploads/{folder_id}") # удаляем полученные с фронтенда файлы
 
@@ -58,20 +58,20 @@ async def upload_zip(file: UploadFile = File(...)):
             else:
                 roots += [obj["amount"]]
         
-        res_str = ""
+        result_str = ""
         if len(leaves) > 0:
-            res_str += "Лист: " if len(leaves) == 1 else "Листья: "
-            res_str += ", ".join(str(leaf) for leaf in leaves) + " мм2\n"
+            result_str += "Лист: " if len(leaves) == 1 else "Листья: "
+            result_str += ", ".join(str(leaf) for leaf in leaves) + " мм2\n"
         if len(stems) > 0:
-            res_str += "Стебль: " if len(stems) == 1 else "Стебли: "
-            res_str += ", ".join(str(stem) for stem in stems) + " мм\n"
+            result_str += "Стебль: " if len(stems) == 1 else "Стебли: "
+            result_str += ", ".join(str(stem) for stem in stems) + " мм\n"
         if len(roots) > 0:
-            res_str += "Корень: " if len(roots) == 1 else "Корни: "
-            res_str += ", ".join(str(root) for root in roots) + " мм\n"
+            result_str += "Корень: " if len(roots) == 1 else "Корни: "
+            result_str += ", ".join(str(root) for root in roots) + " мм\n"
         
         txt_path = res["output_file"].split(".")[0] + ".txt"
         with open(txt_path, "w", encoding="utf-8") as txt_file:
-            txt_file.write(res_str)
+            txt_file.write(result_str)
         
         to_frontend.append({
             "image_url": res["output_file"],
