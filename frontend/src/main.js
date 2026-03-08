@@ -4,7 +4,7 @@ const form = document.getElementById('uploadForm');
 const fileInput = document.getElementById('InputButton');
 const preview = document.getElementById('preview');
 
-const BACKEND_URL = "http://127.0.0.1:8000"; // поменяй если другой порт
+const BACKEND_URL = "http://127.0.0.1:8000";
 
 fileInput.addEventListener('change', function () {
     preview.innerHTML = "";
