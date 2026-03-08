@@ -61,13 +61,13 @@ async def upload_zip(file: UploadFile = File(...)):
         result_str = ""
         if len(leaves) > 0:
             result_str += "Лист: " if len(leaves) == 1 else "Листья: "
-            result_str += ", ".join(str(leaf) for leaf in leaves) + " мм2\n"
+            result_str += "; ".join(str(leaf) for leaf in leaves) + " мм2\n"
         if len(stems) > 0:
             result_str += "Стебль: " if len(stems) == 1 else "Стебли: "
-            result_str += ", ".join(str(stem) for stem in stems) + " мм\n"
+            result_str += "; ".join(str(stem) for stem in stems) + " мм\n"
         if len(roots) > 0:
             result_str += "Корень: " if len(roots) == 1 else "Корни: "
-            result_str += ", ".join(str(root) for root in roots) + " мм\n"
+            result_str += "; ".join(str(root) for root in roots) + " мм\n"
         
         txt_path = res["output_file"].split(".")[0] + ".txt"
         with open(txt_path, "w", encoding="utf-8") as txt_file:

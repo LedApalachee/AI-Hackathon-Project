@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leafs & roots</title>
+
+  <link rel="stylesheet" href="src/style.css">
+  <script src="./src/main.js" type="module"></script>
+
+</head>
+<body>
+ <section class="header">
+     <div class="container">
+     <h1 class="logo">Tops & Roots</h1>
+     </div>
+ </section>
+
+ <section class="content">
+     <div class="container">
+         <div class="mainBlock">
+
+             <form id="uploadForm" enctype="multipart/form-data">
+
+                 <label class="InputButton">
+                     <span>Выберите файл</span>
+                     <input id="InputButton" type="file" name="image" accept="image/*" multiple>
+                 </label>
+
+                 <button class="downloadButton" type="submit">Cегментировать</button>
+
+                 <div id="preview"></div>
+             </form>
+
+         </div>
+     </div>
+ </section>
+
+</body>
+</html>
